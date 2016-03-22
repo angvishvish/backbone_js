@@ -1,11 +1,13 @@
 BackboneApp.databaseView = Backbone.View.extend({
   tagName: 'tr',
   render: function () {
-    $(this.el).html('<td><a href="#">Some text to show</a></td>');
+    var htmlTemplate = $('#database-list-template').html();
+    var compiled = _.template(htmlTemplate, {name: 'template name'});
+    $(this.el).html(compiled);
     return this;
   },
   events: {
-    'click a': 'someFunction'
+    'click a' : 'someFunction'
   },
   someFunction: function () {
     console.log('I am here');
