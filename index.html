@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Backbone Js</title>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="underscore.js"></script>
+  <script type="text/javascript" src="backbone.js"></script>
+</head>
+<body>
+  <div id="element"></div>
+  <script>
+    BackboneApp = {
+      init: function () {
+      }
+    }
+    BackboneApp.htmlRenderView = Backbone.View.extend({
+      render: function () {
+        $(this.el).html('<a href="#">Click here</a>')
+      },
+      events: {
+        'click a': 'someFunction'
+      },
+      someFunction: function () {
+        console.log('I am here to learn Backbonejs')
+      }
+    });
+    var app = new BackboneApp.htmlRenderView({el: '#element'});
+    app.render();
+  </script>
+</body>
+</html>
